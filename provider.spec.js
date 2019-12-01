@@ -6,12 +6,12 @@ describe('Pact Verification', () => {
   it('validates the contract provided by the consumer', () => {
     const opts = {
       provider: 'GraphQLProvider',
-      providerBaseUrl: 'http://localhost:4000',
+      providerBaseUrl: 'http://localhost:51457',
       pactBrokerUrl: PACT_BROKER_URL,
       pactBrokerToken: PACT_BROKER_TOKEN,
       tags: ['test'],
       publishVerificationResult: true,
-      providerVersion: '1.0.0',
+      providerVersion: '1.0.2',
       logLevel: 'DEBUG',
     };
 

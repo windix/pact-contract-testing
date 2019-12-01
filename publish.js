@@ -11,7 +11,7 @@ const opts = {
   pactBrokerToken: PACT_BROKER_TOKEN,
   tags: ["test"],
   consumerVersion:
-    "1.0.0"
+    "1.0.2"
 }
 
 pact

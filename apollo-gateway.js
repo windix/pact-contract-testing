@@ -14,6 +14,14 @@ const server = new ApolloServer({
   gateway,
   playground: NODE_ENV !== 'production',
   subscriptions: false,
+  formatError: error => {
+    console.log(error);
+    return error;
+  },
+  formatResponse: response => {
+    console.log(response);
+    return response;
+  },
 });
 
 server.listen().then(({ url }) => {
