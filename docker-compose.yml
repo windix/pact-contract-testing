@@ -1,0 +1,48 @@
+version: "3.7"
+
+services:
+  test-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./test1.js:/usr/app/test1.js:cached
+      - ./node_modules:/usr/app/node_modules:cached
+      - ./package.json:/usr/app/package.json:cached
+    working_dir: /usr/app
+    command: npm run start-test-1
+    ports:
+      - 4001:4000
+
+  test-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./test2.js:/usr/app/test2.js:cached
+      - ./node_modules:/usr/app/node_modules:cached
+      - ./package.json:/usr/app/package.json:cached
+    working_dir: /usr/app
+    command: npm run start-test-2
+    ports:
+      - 4002:4000
+
+  apollo-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./apollo-gateway.js:/usr/app/apollo-gateway.js:cached
+      - ./gateway-server.js:/usr/app/gateway-server.js:cached
+      - ./node_modules:/usr/app/node_modules:cached
+      - ./package.json:/usr/app/package.json:cached
+    working_dir: /usr/app
+    command: npm run start-apollo-gateway
+    ports:
+      - 4000:4000
+    links:
+      - test-1
+      - test-2
+    environment:
+      - SERVER_1_URL=http://test-1:4000/graphql
+      - SERVER_2_URL=http://test-2:4000/graphql

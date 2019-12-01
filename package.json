@@ -1,0 +1,43 @@
+{
+  "name": "pact-contract-testing",
+  "version": "1.0.0",
+  "description": "An example of using pact.io to contract test an API.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nialloc9/pact-contract-testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nialloc9/pact-contract-testing/issues"
+  },
+  "homepage": "https://github.com/nialloc9/pact-contract-testing#readme",
+  "dependencies": {
+    "@apollo/gateway": "^0.10.8",
+    "@pact-foundation/pact": "^9.5.0",
+    "apollo-server": "^2.9.7",
+    "axios": "^0.19.0",
+    "graphql": "^14.5.8"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.1",
+    "nyc": "^14.1.1",
+    "wait-port": "^0.2.6"
+  },
+  "scripts": {
+    "start-test-1": "nodemon ./test1.js",
+    "start-test-2": "nodemon ./test2.js",
+    "start-apollo-gateway": "wait-port test-1:4000 && wait-port test-2:4000 && nodemon ./apollo-gateway.js",
+    "clean": "rimraf pacts",
+    "test": "npm run clean && npm run test:consumer && npm run test:publish && npm run test:provider",
+    "test-consumer": "nyc --reporter=text-summary mocha consumer.spec.js",
+    "publish-pact": "node publish.js",
+    "test-provider": "nyc --reporter=text-summary mocha -t 10000 provider.spec.js"
+  },
+  "config": {
+    "pact_do_not_track": true
+  }
+}
