@@ -1,5 +1,5 @@
 # pact-contract-testing
-An example of using pact.io to contract test a federated graphql API using [Apollo Server](https://www.apollographql.com/docs/apollo-server/) and [pactflow](https://www.pactflow.io).
+An example of using pact.io to contract test a federated graphql API using [Apollo Server](https://www.apollographql.com/docs/apollo-server/) and [pactflow](https://www.pactflow.io). Read about this project at [TwentyFirstCenturyCode](https://twentyfirstcenturycode.com/other/apollo-graphql-contract-testing) or on [Medium](https://medium.com/@nialloc9/contract-testing-an-apollo-federated-gateway-with-pact-io-and-pactflow-io-3d185da2985c).
 
 <p align="center">
   <img src="/screenshots/main.png" width="700" title="Pact tests running in cli">
