@@ -28,14 +28,14 @@
     "wait-port": "^0.2.6"
   },
   "scripts": {
-    "start-test-1": "nodemon ./test1.js",
-    "start-test-2": "nodemon ./test2.js",
-    "start-apollo-gateway": "wait-port test-1:4000 && wait-port test-2:4000 && nodemon ./apollo-gateway.js",
+    "start-example-test-server-1": "nodemon ./exampleTestServer1.js",
+    "start-example-test-server-2": "nodemon ./exampleTestServer2.js",
+    "start-apollo-gateway": "wait-port example-test-server-1:4000 && wait-port example-test-server-2:4000 && nodemon ./apollo-gateway.js",
     "clean": "rimraf pacts",
     "test": "npm run clean && npm run test:consumer && npm run test:publish && npm run test:provider",
     "test-consumer": "nyc --reporter=text-summary mocha consumer.spec.js",
-    "publish-pact": "PACT_BROKER_TOKEN=XXXXX PACT_BROKER_URL=https://XXXXX.pact.dius.com.au/ node publish.js",
-    "test-provider": "PACT_BROKER_TOKEN=XXXXX PACT_BROKER_URL=https://XXXXX.pact.dius.com.au/ nyc --reporter=text-summary mocha -t 10000 provider.spec.js"
+    "publish-pact": "PACT_BROKER_TOKEN=XXXXX PACT_BROKER_URL=https://twentyfirstcenturycode.pact.dius.com.au/ node publish.js",
+    "test-provider": "PACT_BROKER_TOKEN=XXXXX PACT_BROKER_URL=https://twentyfirstcenturycode.pact.dius.com.au/ nyc --reporter=text-summary mocha -t 10000 provider.spec.js"
   },
   "config": {
     "pact_do_not_track": true

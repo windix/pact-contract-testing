@@ -5,13 +5,13 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const query = gql`
   type Query {
-    hello1: String
+    hello2: String
   }
 `;
 
 const resolvers = {
     Query: {
-        hello1: () => "Hello from test1 server",
+      hello2: () => "Hello from test2 server",
     },
 };
 
@@ -26,5 +26,5 @@ const server = new ApolloServer({
  });
 
 server.listen().then(({ url }) => {
-    console.log(`🚀 Test1 Server ready at ${url}`);
+    console.log(`🚀 ExampleTestServer2 ready at ${url}`);
 });

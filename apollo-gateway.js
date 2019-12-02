@@ -5,8 +5,8 @@ const { NODE_ENV, SERVER_1_URL, SERVER_2_URL } = process.env;
 
 const gateway = new ApolloGateway({
   serviceList: [
-    {name: 'test1', url: SERVER_1_URL},
-    {name: 'test2', url: SERVER_2_URL},
+    {name: 'example-test-server-1', url: SERVER_1_URL},
+    {name: 'example-test-server-2', url: SERVER_2_URL},
   ],
 });
 
