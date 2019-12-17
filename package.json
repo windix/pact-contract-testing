@@ -35,7 +35,8 @@
     "test": "npm run clean && npm run test:consumer && npm run test:publish && npm run test:provider",
     "test-consumer": "nyc --reporter=text-summary mocha consumer.spec.js",
     "publish-pact": "PACT_BROKER_TOKEN=XXXXX PACT_BROKER_URL=https://XXXXX.pact.dius.com.au/ node publish.js",
-    "test-provider": "PACT_BROKER_TOKEN=XXXXX PACT_BROKER_URL=https://XXXXX.pact.dius.com.au/ nyc --reporter=text-summary mocha -t 10000 provider.spec.js"
+    "test-provider": "PACT_BROKER_TOKEN=XXXXX PACT_BROKER_URL=https://XXXXX.pact.dius.com.au/ nyc --reporter=text-summary mocha -t 10000 provider.spec.js",
+    "test-provider-abstraction": "PACT_BROKER_CONTRACT_NAME=GraphQLProvider PACT_BROKER_TOKEN=XXXX PACT_BROKER_URL=https://XXXX.pact.dius.com.au/ mocha -t 10000 provider-abstraction.spec.js"
   },
   "config": {
     "pact_do_not_track": true
