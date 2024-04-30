@@ -14,7 +14,7 @@
   "homepage": "https://github.com/nialloc9/pact-contract-testing#readme",
   "dependencies": {
     "@apollo/gateway": "^0.10.8",
-    "@pact-foundation/pact": "^9.5.0",
+    "@pact-foundation/pact": "^12.5.0",
     "apollo-server": "^2.9.7",
     "axios": "^0.19.0",
     "graphql": "^14.5.8"
